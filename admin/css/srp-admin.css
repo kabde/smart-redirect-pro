@@ -1,0 +1,54 @@
+/* Stats chart */
+.srp-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 160px;
+    padding: 0 4px;
+}
+.srp-chart-bar {
+    flex: 1;
+    background: linear-gradient(to top, #6366f1, #818cf8);
+    border-radius: 4px 4px 0 0;
+    min-height: 4px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: height 300ms ease;
+}
+.srp-chart-value {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    padding-top: 4px;
+}
+.srp-chart-label {
+    position: absolute;
+    bottom: -20px;
+    font-size: 10px;
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+/* Redirect type badges */
+.srp-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.srp-badge-301 { background: #dcfce7; color: #166534; }
+.srp-badge-302 { background: #dbeafe; color: #1e40af; }
+.srp-badge-307 { background: #ffedd5; color: #9a3412; }
+
+/* Copy button feedback */
+.srp-copy-btn { cursor: pointer; }
+
+/* Column widths */
+.wp-list-table .column-short_url { width: 220px; }
+.wp-list-table .column-destination { width: 200px; }
+.wp-list-table .column-redirect_type { width: 60px; }
+.wp-list-table .column-clicks { width: 70px; }
