@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Smart Redirect Pro
  * Description: Professional URL redirect manager with click tracking, folders, tags, QR codes, and shortcodes.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Abderrahim KHALID
  * Text Domain: smart-redirect-pro
  * Domain Path: /languages
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SRP_VERSION', '1.0.0' );
+define( 'SRP_VERSION', '1.1.0' );
 define( 'SRP_FILE', __FILE__ );
 define( 'SRP_BASENAME', plugin_basename( __FILE__ ) );
 define( 'SRP_PATH', plugin_dir_path( __FILE__ ) );
