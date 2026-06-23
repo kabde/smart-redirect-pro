@@ -8,7 +8,7 @@
 }
 .srp-chart-bar {
     flex: 1;
-    background: linear-gradient(to top, #6366f1, #818cf8);
+    background: linear-gradient(to top, #d4a017, #ffc45e);
     border-radius: 4px 4px 0 0;
     min-height: 4px;
     position: relative;
@@ -52,3 +52,4 @@
 .wp-list-table .column-destination { width: 200px; }
 .wp-list-table .column-redirect_type { width: 60px; }
 .wp-list-table .column-clicks { width: 70px; }
+.wp-list-table .column-srp_status { width: 80px; }

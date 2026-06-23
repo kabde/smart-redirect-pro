@@ -3,6 +3,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Build the short redirect URL for a given post.
+ */
+function srp_get_short_url( $post_id ) {
+	$base = function_exists( 'srp_get_setting' ) ? srp_get_setting( 'base_slug' ) : 'go';
+	if ( empty( $base ) ) $base = 'go';
+	$format = function_exists( 'srp_get_setting' ) ? srp_get_setting( 'url_format' ) : 'slug';
+
+	if ( $format === 'id' ) {
+		return home_url( '/' . $base . '/?p=' . absint( $post_id ) );
+	}
+
+	$post = get_post( $post_id );
+	$slug = $post ? $post->post_name : '';
+	if ( ! $slug ) return home_url( '/' . $base . '/?p=' . absint( $post_id ) );
+
+	return home_url( '/' . $base . '/' . $slug . '/' );
+}
+
 class SRP_CPT {
 
 	const POST_TYPE = 'srp_redirect';
@@ -19,6 +38,45 @@ class SRP_CPT {
 		add_action( 'admin_action_srp_duplicate_redirect', [ $this, 'duplicate_redirect' ] );
 		add_shortcode( 'srp_link', [ $this, 'shortcode_link' ] );
 		add_shortcode( 'srp_url', [ $this, 'shortcode_url' ] );
+
+		// Make redirects searchable in the editor link dialog (classic + Gutenberg)
+		add_filter( 'wp_link_query_args', [ $this, 'include_in_link_search' ] );
+		add_filter( 'wp_link_query', [ $this, 'rewrite_link_urls' ], 10, 2 );
+		add_filter( 'post_type_link', [ $this, 'filter_permalink' ], 10, 2 );
+
+	}
+
+	/**
+	 * Include srp_redirect in the editor link search (classic editor).
+	 */
+	public function include_in_link_search( $query ) {
+		if ( isset( $query['post_type'] ) && is_array( $query['post_type'] ) ) {
+			$query['post_type'][] = self::POST_TYPE;
+		}
+		return $query;
+	}
+
+	/**
+	 * Replace the default permalink with the short redirect URL in link search results.
+	 */
+	public function rewrite_link_urls( $results, $query ) {
+		foreach ( $results as &$result ) {
+			if ( isset( $result['ID'] ) && get_post_type( $result['ID'] ) === self::POST_TYPE ) {
+				$result['permalink'] = srp_get_short_url( $result['ID'] );
+				$result['info'] = __( 'Redirect', 'smart-redirect-pro' );
+			}
+		}
+		return $results;
+	}
+
+	/**
+	 * Override permalink for srp_redirect posts to use the short URL everywhere.
+	 */
+	public function filter_permalink( $post_link, $post ) {
+		if ( $post->post_type === self::POST_TYPE ) {
+			return srp_get_short_url( $post->ID );
+		}
+		return $post_link;
 	}
 
 	public static function capabilities() {
@@ -50,23 +108,21 @@ class SRP_CPT {
 	public function register_post_type() {
 
 		$labels = [
-			'name'               => 'Redirections',
-			'singular_name'      => 'Redirection',
-			'menu_name'          => 'Redirections',
-			'add_new'            => 'Ajouter une redirection',
-			'add_new_item'       => 'Ajouter une nouvelle redirection',
-			'edit_item'          => 'Modifier la redirection',
-			'new_item'           => 'Nouvelle redirection',
-			'view_item'          => 'Voir la redirection',
-			'search_items'       => 'Rechercher des redirections',
-			'not_found'          => 'Aucune redirection trouvée',
-			'not_found_in_trash' => 'Aucune redirection trouvée dans la corbeille',
+			'name'               => __( 'Redirects', 'smart-redirect-pro' ),
+			'singular_name'      => __( 'Redirect', 'smart-redirect-pro' ),
+			'menu_name'          => __( 'Redirects', 'smart-redirect-pro' ),
+			'add_new'            => __( 'Add Redirect', 'smart-redirect-pro' ),
+			'add_new_item'       => __( 'Add New Redirect', 'smart-redirect-pro' ),
+			'edit_item'          => __( 'Edit Redirect', 'smart-redirect-pro' ),
+			'new_item'           => __( 'New Redirect', 'smart-redirect-pro' ),
+			'view_item'          => __( 'View Redirect', 'smart-redirect-pro' ),
+			'search_items'       => __( 'Search Redirects', 'smart-redirect-pro' ),
+			'not_found'          => __( 'No redirects found', 'smart-redirect-pro' ),
+			'not_found_in_trash' => __( 'No redirects found in trash', 'smart-redirect-pro' ),
 		];
 
 		$base_slug = function_exists( 'srp_get_setting' ) ? srp_get_setting( 'base_slug' ) : 'go';
-		if ( empty( $base_slug ) ) {
-			$base_slug = 'go';
-		}
+		if ( empty( $base_slug ) ) $base_slug = 'go';
 
 		$args = [
 			'labels'              => $labels,
@@ -74,18 +130,19 @@ class SRP_CPT {
 			'show_ui'             => true,
 			'show_in_menu'        => true,
 			'show_in_admin_bar'   => true,
+			'show_in_rest'        => true,
 			'menu_position'       => 22,
 			'menu_icon'           => 'dashicons-randomize',
 			'show_in_nav_menus'   => false,
 			'can_export'          => true,
 			'has_archive'         => false,
-			'exclude_from_search' => true,
+			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'capability_type'     => [ 'srp_redirect', 'srp_redirects' ],
 			'capabilities'        => self::capabilities(),
 			'map_meta_cap'        => false,
 			'supports'            => [ 'title' ],
-			'rewrite'             => [ 'slug' => $base_slug, 'with_front' => false ],
+			'rewrite'             => [ 'slug' => $base_slug, 'with_front' => false, 'feeds' => false, 'pages' => false ],
 		];
 
 		register_post_type( self::POST_TYPE, $args );
@@ -97,17 +154,17 @@ class SRP_CPT {
 		// Folders (hierarchical)
 		register_taxonomy( 'srp_folder', self::POST_TYPE, [
 			'labels' => [
-				'name'              => 'Dossiers',
-				'singular_name'     => 'Dossier',
-				'search_items'      => 'Rechercher des dossiers',
-				'all_items'         => 'Tous les dossiers',
-				'parent_item'       => 'Dossier parent',
-				'parent_item_colon' => 'Dossier parent :',
-				'edit_item'         => 'Modifier le dossier',
-				'update_item'       => 'Mettre à jour le dossier',
-				'add_new_item'      => 'Ajouter un dossier',
-				'new_item_name'     => 'Nom du nouveau dossier',
-				'menu_name'         => 'Dossiers',
+				'name'              => __( 'Folders', 'smart-redirect-pro' ),
+				'singular_name'     => __( 'Folder', 'smart-redirect-pro' ),
+				'search_items'      => __( 'Search Folders', 'smart-redirect-pro' ),
+				'all_items'         => __( 'All Folders', 'smart-redirect-pro' ),
+				'parent_item'       => __( 'Parent Folder', 'smart-redirect-pro' ),
+				'parent_item_colon' => __( 'Parent Folder:', 'smart-redirect-pro' ),
+				'edit_item'         => __( 'Edit Folder', 'smart-redirect-pro' ),
+				'update_item'       => __( 'Update Folder', 'smart-redirect-pro' ),
+				'add_new_item'      => __( 'Add Folder', 'smart-redirect-pro' ),
+				'new_item_name'     => __( 'New Folder Name', 'smart-redirect-pro' ),
+				'menu_name'         => __( 'Folders', 'smart-redirect-pro' ),
 			],
 			'hierarchical'      => true,
 			'show_admin_column'  => true,
@@ -118,19 +175,19 @@ class SRP_CPT {
 		// Tags (non-hierarchical)
 		register_taxonomy( 'srp_tag', self::POST_TYPE, [
 			'labels' => [
-				'name'                       => 'Tags',
-				'singular_name'              => 'Tag',
-				'search_items'               => 'Rechercher des tags',
-				'popular_items'              => 'Tags populaires',
-				'all_items'                  => 'Tous les tags',
-				'edit_item'                  => 'Modifier le tag',
-				'update_item'                => 'Mettre à jour le tag',
-				'add_new_item'               => 'Ajouter un tag',
-				'new_item_name'              => 'Nom du nouveau tag',
-				'separate_items_with_commas' => 'Séparer les tags par des virgules',
-				'add_or_remove_items'        => 'Ajouter ou retirer des tags',
-				'choose_from_most_used'      => 'Choisir parmi les plus utilisés',
-				'menu_name'                  => 'Tags',
+				'name'                       => __( 'Tags', 'smart-redirect-pro' ),
+				'singular_name'              => __( 'Tag', 'smart-redirect-pro' ),
+				'search_items'               => __( 'Search Tags', 'smart-redirect-pro' ),
+				'popular_items'              => __( 'Popular Tags', 'smart-redirect-pro' ),
+				'all_items'                  => __( 'All Tags', 'smart-redirect-pro' ),
+				'edit_item'                  => __( 'Edit Tag', 'smart-redirect-pro' ),
+				'update_item'                => __( 'Update Tag', 'smart-redirect-pro' ),
+				'add_new_item'               => __( 'Add Tag', 'smart-redirect-pro' ),
+				'new_item_name'              => __( 'New Tag Name', 'smart-redirect-pro' ),
+				'separate_items_with_commas' => __( 'Separate tags with commas', 'smart-redirect-pro' ),
+				'add_or_remove_items'        => __( 'Add or remove tags', 'smart-redirect-pro' ),
+				'choose_from_most_used'      => __( 'Choose from the most used', 'smart-redirect-pro' ),
+				'menu_name'                  => __( 'Tags', 'smart-redirect-pro' ),
 			],
 			'hierarchical'      => false,
 			'show_admin_column'  => true,
@@ -145,10 +202,11 @@ class SRP_CPT {
 
 		$new_columns['cb']            = $columns['cb'];
 		$new_columns['title']         = $columns['title'];
-		$new_columns['short_url']     = 'URL courte';
-		$new_columns['destination']   = 'Destination';
-		$new_columns['redirect_type'] = 'Type';
-		$new_columns['clicks']        = 'Clics';
+		$new_columns['srp_status']    = __( 'Status', 'smart-redirect-pro' );
+		$new_columns['short_url']     = __( 'Short URL', 'smart-redirect-pro' );
+		$new_columns['destination']   = __( 'Destination', 'smart-redirect-pro' );
+		$new_columns['redirect_type'] = __( 'Type', 'smart-redirect-pro' );
+		$new_columns['clicks']        = __( 'Clicks', 'smart-redirect-pro' );
 
 		// Keep taxonomy columns that WP auto-adds
 		foreach ( $columns as $key => $label ) {
@@ -165,9 +223,9 @@ class SRP_CPT {
 	public function fill_custom_columns( $column, $post_id ) {
 		switch ( $column ) {
 			case 'short_url':
-				$url = get_permalink( $post_id );
+				$url = srp_get_short_url( $post_id );
 				echo '<code style="font-size:12px;">' . esc_html( str_replace( [ 'https://', 'http://' ], '', $url ) ) . '</code>';
-				echo ' <button class="button button-small srp-copy-btn" data-url="' . esc_url( $url ) . '">Copier</button>';
+				echo ' <button class="button button-small srp-copy-btn" data-url="' . esc_url( $url ) . '">' . esc_html__( 'Copy', 'smart-redirect-pro' ) . '</button>';
 				break;
 
 			case 'destination':
@@ -176,7 +234,7 @@ class SRP_CPT {
 					$display = mb_strlen( $dest ) > 50 ? mb_substr( $dest, 0, 50 ) . '...' : $dest;
 					echo '<a href="' . esc_url( $dest ) . '" target="_blank" rel="noopener">' . esc_html( $display ) . '</a>';
 				} else {
-					echo '<span style="color:#dc3232;">Non définie</span>';
+					echo '<span style="color:#dc3232;">' . esc_html__( 'Not set', 'smart-redirect-pro' ) . '</span>';
 				}
 				break;
 
@@ -189,6 +247,15 @@ class SRP_CPT {
 				];
 				$class = isset( $classes[ $type ] ) ? $classes[ $type ] : 'srp-badge srp-badge-302';
 				echo '<span class="' . esc_attr( $class ) . '">' . esc_html( $type ) . '</span>';
+				break;
+
+			case 'srp_status':
+				$status = get_post_meta( $post_id, '_srp_status', true ) ?: 'active';
+				if ( $status === 'active' ) {
+					echo '<span style="color:#16a34a;font-weight:bold;">' . esc_html( '&#10003; ' ) . esc_html__( 'Active', 'smart-redirect-pro' ) . '</span>';
+				} else {
+					echo '<span style="color:#dc2626;font-weight:bold;">' . esc_html( '&#10007; ' ) . esc_html__( 'Inactive', 'smart-redirect-pro' ) . '</span>';
+				}
 				break;
 
 			case 'clicks':
@@ -220,7 +287,7 @@ class SRP_CPT {
 		if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
 			$current = isset( $_GET['srp_filter_folder'] ) ? sanitize_key( wp_unslash( $_GET['srp_filter_folder'] ) ) : '';
 			echo '<select name="srp_filter_folder">';
-			echo '<option value="">Tous les dossiers</option>';
+			echo '<option value="">' . esc_html__( 'All folders', 'smart-redirect-pro' ) . '</option>';
 			foreach ( $terms as $term ) {
 				echo '<option value="' . esc_attr( $term->slug ) . '" ' . selected( $current, $term->slug, false ) . '>' . esc_html( $term->name ) . '</option>';
 			}
@@ -230,7 +297,7 @@ class SRP_CPT {
 		// Type filter
 		$current_type = isset( $_GET['srp_filter_type'] ) ? sanitize_key( wp_unslash( $_GET['srp_filter_type'] ) ) : '';
 		echo '<select name="srp_filter_type">';
-		echo '<option value="">Tous les types</option>';
+		echo '<option value="">' . esc_html__( 'All types', 'smart-redirect-pro' ) . '</option>';
 		echo '<option value="301" ' . selected( $current_type, '301', false ) . '>301</option>';
 		echo '<option value="302" ' . selected( $current_type, '302', false ) . '>302</option>';
 		echo '<option value="307" ' . selected( $current_type, '307', false ) . '>307</option>';
@@ -289,7 +356,7 @@ class SRP_CPT {
 			'srp_duplicate_redirect_' . absint( $post->ID )
 		);
 
-		$actions['srp_duplicate'] = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Dupliquer', 'smart-redirect-pro' ) . '</a>';
+		$actions['srp_duplicate'] = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Duplicate', 'smart-redirect-pro' ) . '</a>';
 		return $actions;
 	}
 
@@ -297,19 +364,20 @@ class SRP_CPT {
 		$post_id = isset( $_GET['post'] ) ? absint( $_GET['post'] ) : 0;
 		$nonce   = isset( $_GET['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ) : '';
 		if ( ! $post_id || ! current_user_can( SRP_CAPABILITY ) || ! current_user_can( 'edit_post', $post_id ) || ! wp_verify_nonce( $nonce, 'srp_duplicate_redirect_' . $post_id ) ) {
-			wp_die( esc_html__( 'Action non autorisée.', 'smart-redirect-pro' ) );
+			wp_die( esc_html__( 'Unauthorized action.', 'smart-redirect-pro' ) );
 		}
 
 		$post = get_post( $post_id );
 		if ( ! $post || self::POST_TYPE !== $post->post_type ) {
-			wp_die( esc_html__( 'Redirection introuvable.', 'smart-redirect-pro' ) );
+			wp_die( esc_html__( 'Redirect not found.', 'smart-redirect-pro' ) );
 		}
 
 		$new_id = wp_insert_post(
 			[
 				'post_type'   => self::POST_TYPE,
 				'post_status' => 'draft',
-				'post_title'  => sprintf( '%s (copie)', $post->post_title ),
+				/* translators: %s: original redirect title */
+				'post_title'  => sprintf( __( '%s (copy)', 'smart-redirect-pro' ), $post->post_title ),
 				'post_author' => get_current_user_id(),
 			],
 			true
@@ -348,7 +416,7 @@ class SRP_CPT {
 		$post = $atts['id'] ? get_post( absint( $atts['id'] ) ) : ( $atts['slug'] ? get_page_by_path( sanitize_title( $atts['slug'] ), OBJECT, 'srp_redirect' ) : null );
 		if ( ! $post || $post->post_type !== 'srp_redirect' ) return '';
 
-		$url  = get_permalink( $post->ID );
+		$url  = srp_get_short_url( $post->ID );
 		$text = $atts['text'] ? $atts['text'] : esc_html( $post->post_title );
 		$rel_parts = [];
 		if ( get_post_meta( $post->ID, '_srp_nofollow', true ) ) $rel_parts[] = 'nofollow';
@@ -364,6 +432,6 @@ class SRP_CPT {
 		$atts = shortcode_atts( [ 'id' => 0, 'slug' => '' ], $atts, 'srp_url' );
 		$post = $atts['id'] ? get_post( absint( $atts['id'] ) ) : ( $atts['slug'] ? get_page_by_path( sanitize_title( $atts['slug'] ), OBJECT, 'srp_redirect' ) : null );
 		if ( ! $post || $post->post_type !== 'srp_redirect' ) return '';
-		return esc_url( get_permalink( $post->ID ) );
+		return esc_url( srp_get_short_url( $post->ID ) );
 	}
 }

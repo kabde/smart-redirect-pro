@@ -1,0 +1,1051 @@
+# Copyright (C) 2024 Abderrahim KHALID
+# This file is distributed under the same license as the Smart Redirect Pro plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Smart Redirect Pro 1.0.0\n"
+"Report-Msgid-Bugs-To: contact@khalid.digital\n"
+"POT-Creation-Date: 2024-01-01T00:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Plugin Name of the plugin
+msgid "Smart Redirect Pro"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Redirect"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Redirects"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Add Redirect"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Add New Redirect"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Edit Redirect"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "New Redirect"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "View Redirect"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Search Redirects"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "No redirects found"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "No redirects found in trash"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Folders"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Folder"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Search Folders"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "All Folders"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Parent Folder"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Parent Folder:"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Edit Folder"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Update Folder"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Add Folder"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "New Folder Name"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Tags"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Tag"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Search Tags"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Popular Tags"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "All Tags"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Edit Tag"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Update Tag"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Add Tag"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "New Tag Name"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Separate tags with commas"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Add or remove tags"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Choose from the most used"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Status"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Short URL"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Destination"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Type"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Clicks"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Copy"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Not set"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Active"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Inactive"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "All folders"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "All types"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Duplicate"
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Unauthorized action."
+msgstr ""
+
+#: admin/class-srp-cpt.php
+msgid "Redirect not found."
+msgstr ""
+
+#: admin/class-srp-cpt.php
+#, php-format
+msgid "%s (copy)"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Redirect Details"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "This redirect will not work until it is published."
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Configuration required"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Custom Slug"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Customize the slug to create a memorable short URL."
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Test link"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Settings"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Redirect type"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "301 — Permanent"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "302 — Temporary"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "307 — Strict Temporary"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Link attributes"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Pass parameters"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Forward query parameters to destination"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "E.g.: /go/link?ref=123 → destination.com?ref=123"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Copy URL"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "QR Code"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Download HD (1000x1000)"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Shortcode"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Statistics"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "total clicks"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "clicks (last 7 days)"
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "An active redirect must have a destination URL."
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Redirect duplicated as draft."
+msgstr ""
+
+#: admin/class-srp-meta.php
+msgid "Incomplete redirect configuration."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "License"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "General"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Advanced"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Documentation"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "You do not have sufficient permissions."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "License Active"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "License key"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Domain"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Expiration"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "Expired on %s"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "%1$s (%2$d day remaining)"
+msgid_plural "%1$s (%2$d days remaining)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "%1$s (%2$d days remaining)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Lifetime (no expiration)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Deactivate license"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Activate your license"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Enter your license key to activate Smart Redirect Pro."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Activate license"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "General Settings"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Base slug"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "Short URL prefix. E.g.: %1$s/%2$s/my-link"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "URL format"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "/go/my-link (slug)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "/go/?p=123 (ID)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Default redirect type"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Default attributes"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Forward query parameters"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Save"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Tracking"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Exclude bots"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Do not count clicks from robots/crawlers"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Exclude admins"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Do not count clicks from administrators"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Click retention"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "%d days"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "1 year"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Unlimited"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "How long click data is kept. Older data is automatically deleted."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Custom CSS"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Custom CSS applied on the front-end."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Getting Started"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "Go to %s"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Redirects &rarr; Add Redirect"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "Give it a %s (e.g. \"Amazon France\")"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "title"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "Customize the %1$s (e.g. %2$s) to get the URL %3$s"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "slug"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "Paste the %s"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "destination URL"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "Choose the %s and attributes"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "redirect type"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "%s — the redirect is active immediately"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Publish"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Redirect Types"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Code"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Name"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "When to use"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Permanent"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "The link has permanently changed. Search engines transfer \"link juice\" to the destination. Caution: browsers cache this, hard to reverse."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Temporary"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Temporary redirect. Ideal for affiliate links, promotions, A/B tests. Recommended by default."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Strict Temporary"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Like 302, but guarantees the HTTP method (GET/POST) is preserved. Used for forms or APIs."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Link Attributes"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Attribute"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Effect"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Recommendation"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Tells search engines not to follow the link and not to transfer SEO authority."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Enabled by default. Keep it for affiliate links and external links."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Tells Google this is a commercial or sponsored link."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Recommended for affiliate links. Compliant with Google guidelines."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Shortcodes"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Result"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "Generates an HTML link: %s"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Link with custom text"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Link by post ID"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Opens in the same tab (default: new tab)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Returns only the URL (no HTML link) — useful in href attributes"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Organization: Folders & Tags"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Hierarchical (like categories). Used to group redirects by project, client, or theme."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Examples:"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Affiliate, Partners, Offers, Social Media"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Non-hierarchical (like labels). Used to add cross-cutting tags."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Amazon, High-ticket, Summer-promo, Urgent"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "URL Settings"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "The short URL prefix. Default: %1$s. Changeable in %2$s."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Settings &rarr; General"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Generated URL"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "After modification, permalinks are automatically updated."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Format"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Example"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Advantage"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Slug (default)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "SEO-friendly, memorable"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "ID"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "No slug conflict, shorter"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Both formats always work in parallel, regardless of the choice."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Parameter Pass-through"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "When enabled on a redirect, query parameters from the short URL are forwarded to the destination:"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Visited URL"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Useful for affiliate tracking, UTM parameters, or campaign IDs."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "QR Codes"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "A QR Code is automatically generated for each redirect. It is visible in the editor sidebar. The QR Code points to the short URL — if you change the destination, the QR Code remains the same."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Tracking is a premium feature that records each click with:"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Date and time"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "of the click"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Country"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "of the visitor (detected via Cloudflare)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Browser"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Operating system"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Device"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Referer"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "(where the visitor came from)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Hashed IP"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "(privacy-friendly, never stored in plain text)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "Accessible via %s. Filterable by redirect, country, browser, and date. CSV export available."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Redirects &rarr; Tracking"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Security & Privacy"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "IP addresses are never stored in plain text — they are hashed (SHA-256 + salt)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Bots (Googlebot, Bingbot...) are automatically excluded from statistics"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Administrators are excluded by default (configurable)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Rate limiting prevents duplicate clicks (same IP within 5 seconds)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "The %s header is sent when nofollow is enabled"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Click data is automatically purged according to the configured retention"
+msgstr ""
+
+#: admin/class-srp-settings.php
+#, php-format
+msgid "The plugin requires a license key in the format %s"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "The license is automatically validated every 72 hours"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Depending on your license, it can be single-domain (one site) or multi-domain (unlimited)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "When changing domains, deactivate the license on the old domain first"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Plugin updates are automatic via the WordPress admin"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Support"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "For any question or issue:"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Email:"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Clicks (7 days)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Clicks (30 days)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Total clicks"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Top 10 — Last 30 days"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "(no title)"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "No data available."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Clicks per day — Last 7 days"
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Activating..."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Connection error."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Deactivating..."
+msgstr ""
+
+#: admin/class-srp-settings.php
+msgid "Deactivate the license on this domain?"
+msgstr ""
+
+#: inc/license.php
+msgid "Too many attempts. Please try again in a minute."
+msgstr ""
+
+#: inc/license.php
+msgid "Invalid license format."
+msgstr ""
+
+#: inc/license.php
+#, php-format
+msgid "Connection error: %s"
+msgstr ""
+
+#: inc/license.php
+msgid "License activated."
+msgstr ""
+
+#: inc/license.php
+msgid "Activation failed."
+msgstr ""
+
+#: inc/license.php
+#, php-format
+msgid "Please %s to use the plugin."
+msgstr ""
+
+#: inc/license.php
+msgid "activate your license"
+msgstr ""
+
+#: inc/license.php
+#, php-format
+msgid "Your license has expired. %s"
+msgstr ""
+
+#: inc/license.php
+msgid "Renew"
+msgstr ""
+
+#: inc/license.php
+#, php-format
+msgid "Your license expires in %1$d day. %2$s"
+msgid_plural "Your license expires in %1$d days. %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/license.php
+msgid "View"
+msgstr ""
+
+#: inc/license.php
+msgid "Permission denied."
+msgstr ""
+
+#: inc/license.php
+msgid "License deactivated."
+msgstr ""
+
+#: admin/js/srp-admin.js
+msgid "Copied!"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Total clicks"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Today"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Top country"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Top browser"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "All"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "From"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "To"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Filter"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Reset"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Export CSV"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "No clicks recorded."
+msgstr ""
+
+#. Worker premium: click-log
+msgid "No clicks recorded for these filters."
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Date / Time"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Details"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Direct"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "(deleted)"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "View details"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Date & Time"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "System"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Full referer"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "Direct (no referer)"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "User-Agent"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "IP (hashed)"
+msgstr ""
+
+#. Worker premium: click-log
+msgid "OS"
+msgstr ""

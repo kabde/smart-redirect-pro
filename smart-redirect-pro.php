@@ -5,6 +5,7 @@
  * Version:     1.0.0
  * Author:      Abderrahim KHALID
  * Text Domain: smart-redirect-pro
+ * Domain Path: /languages
  * Network:     true
  * Requires at least: 5.0
  * Tested up to: 7.0
@@ -22,6 +23,12 @@ define( 'SRP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SRP_URL',  plugin_dir_url( __FILE__ ) );
 define( 'SRP_CAPABILITY', 'manage_srp' );
 define( 'SRP_API_URL', 'https://dp-starter.khalid.digital' );
+
+// Load translations
+function srp_load_textdomain() {
+    load_plugin_textdomain( 'smart-redirect-pro', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'plugins_loaded', 'srp_load_textdomain' );
 
 // License system FIRST
 require_once SRP_PATH . 'inc/license.php';
@@ -47,6 +54,9 @@ if ( srp_is_licensed() ) {
     if ( is_admin() ) {
         new SRP_Meta();
     }
+
+    // Load premium code from Worker
+    srp_load_premium_code();
 }
 
 function srp_add_caps_for_blog() {
@@ -76,6 +86,15 @@ function srp_activate( $network_wide = false ) {
         require_once SRP_PATH . 'admin/class-srp-tracker.php';
         SRP_Tracker::create_table();
     }
+    // Initialize settings defaults if not set
+    if ( function_exists('srp_settings_defaults') ) {
+        $defaults = srp_settings_defaults();
+        $current = get_option( 'srp_settings', [] );
+        if ( empty( $current ) ) {
+            update_option( 'srp_settings', $defaults );
+        }
+    }
+
     flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'srp_activate' );

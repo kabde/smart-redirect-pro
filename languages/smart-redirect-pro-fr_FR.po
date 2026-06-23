@@ -1,0 +1,797 @@
+# French translation for Smart Redirect Pro
+# Copyright (C) 2024 Abderrahim KHALID
+# This file is distributed under the same license as the Smart Redirect Pro plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Smart Redirect Pro 1.0.0\n"
+"Report-Msgid-Bugs-To: contact@khalid.digital\n"
+"POT-Creation-Date: 2024-01-01T00:00:00+00:00\n"
+"PO-Revision-Date: 2024-01-01T00:00:00+00:00\n"
+"Last-Translator: Abderrahim KHALID <contact@khalid.digital>\n"
+"Language-Team: French <contact@khalid.digital>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Smart Redirect Pro"
+msgstr "Smart Redirect Pro"
+
+msgid "Redirect"
+msgstr "Redirection"
+
+msgid "Redirects"
+msgstr "Redirections"
+
+msgid "Add Redirect"
+msgstr "Ajouter une redirection"
+
+msgid "Add New Redirect"
+msgstr "Ajouter une nouvelle redirection"
+
+msgid "Edit Redirect"
+msgstr "Modifier la redirection"
+
+msgid "New Redirect"
+msgstr "Nouvelle redirection"
+
+msgid "View Redirect"
+msgstr "Voir la redirection"
+
+msgid "Search Redirects"
+msgstr "Rechercher des redirections"
+
+msgid "No redirects found"
+msgstr "Aucune redirection trouvée"
+
+msgid "No redirects found in trash"
+msgstr "Aucune redirection trouvée dans la corbeille"
+
+msgid "Folders"
+msgstr "Dossiers"
+
+msgid "Folder"
+msgstr "Dossier"
+
+msgid "Search Folders"
+msgstr "Rechercher des dossiers"
+
+msgid "All Folders"
+msgstr "Tous les dossiers"
+
+msgid "Parent Folder"
+msgstr "Dossier parent"
+
+msgid "Parent Folder:"
+msgstr "Dossier parent :"
+
+msgid "Edit Folder"
+msgstr "Modifier le dossier"
+
+msgid "Update Folder"
+msgstr "Mettre à jour le dossier"
+
+msgid "Add Folder"
+msgstr "Ajouter un dossier"
+
+msgid "New Folder Name"
+msgstr "Nom du nouveau dossier"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Tag"
+msgstr "Tag"
+
+msgid "Search Tags"
+msgstr "Rechercher des tags"
+
+msgid "Popular Tags"
+msgstr "Tags populaires"
+
+msgid "All Tags"
+msgstr "Tous les tags"
+
+msgid "Edit Tag"
+msgstr "Modifier le tag"
+
+msgid "Update Tag"
+msgstr "Mettre à jour le tag"
+
+msgid "Add Tag"
+msgstr "Ajouter un tag"
+
+msgid "New Tag Name"
+msgstr "Nom du nouveau tag"
+
+msgid "Separate tags with commas"
+msgstr "Séparer les tags par des virgules"
+
+msgid "Add or remove tags"
+msgstr "Ajouter ou retirer des tags"
+
+msgid "Choose from the most used"
+msgstr "Choisir parmi les plus utilisés"
+
+msgid "Status"
+msgstr "Statut"
+
+msgid "Short URL"
+msgstr "URL courte"
+
+msgid "Destination"
+msgstr "Destination"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Clicks"
+msgstr "Clics"
+
+msgid "Copy"
+msgstr "Copier"
+
+msgid "Not set"
+msgstr "Non définie"
+
+msgid "Active"
+msgstr "Actif"
+
+msgid "Inactive"
+msgstr "Inactif"
+
+msgid "All folders"
+msgstr "Tous les dossiers"
+
+msgid "All types"
+msgstr "Tous les types"
+
+msgid "Duplicate"
+msgstr "Dupliquer"
+
+msgid "Unauthorized action."
+msgstr "Action non autorisée."
+
+msgid "Redirect not found."
+msgstr "Redirection introuvable."
+
+#, php-format
+msgid "%s (copy)"
+msgstr "%s (copie)"
+
+msgid "Redirect Details"
+msgstr "Détails de la redirection"
+
+msgid "This redirect will not work until it is published."
+msgstr "Cette redirection ne fonctionnera pas tant qu'elle n'est pas publiée."
+
+msgid "Configuration required"
+msgstr "Configuration à compléter"
+
+msgid "Custom Slug"
+msgstr "Slug personnalisé"
+
+msgid "Customize the slug to create a memorable short URL."
+msgstr "Personnalisez le slug pour créer une URL courte mémorisable."
+
+msgid "Test link"
+msgstr "Tester le lien"
+
+msgid "Settings"
+msgstr "Réglages"
+
+msgid "Redirect type"
+msgstr "Type de redirection"
+
+msgid "301 — Permanent"
+msgstr "301 — Permanent"
+
+msgid "302 — Temporary"
+msgstr "302 — Temporaire"
+
+msgid "307 — Strict Temporary"
+msgstr "307 — Temporaire strict"
+
+msgid "Link attributes"
+msgstr "Attributs du lien"
+
+msgid "Pass parameters"
+msgstr "Passer les paramètres"
+
+msgid "Forward query parameters to destination"
+msgstr "Transmettre les query parameters à la destination"
+
+msgid "E.g.: /go/link?ref=123 → destination.com?ref=123"
+msgstr "Ex : /go/lien?ref=123 → destination.com?ref=123"
+
+msgid "Copy URL"
+msgstr "Copier l'URL"
+
+msgid "QR Code"
+msgstr "QR Code"
+
+msgid "Download HD (1000x1000)"
+msgstr "Télécharger HD (1000×1000)"
+
+msgid "Shortcode"
+msgstr "Shortcode"
+
+msgid "Statistics"
+msgstr "Statistiques"
+
+msgid "total clicks"
+msgstr "clics au total"
+
+msgid "clicks (last 7 days)"
+msgstr "clics (7 derniers jours)"
+
+msgid "An active redirect must have a destination URL."
+msgstr "Une redirection active doit avoir une URL de destination."
+
+msgid "Redirect duplicated as draft."
+msgstr "Redirection dupliquée en brouillon."
+
+msgid "Incomplete redirect configuration."
+msgstr "Configuration de redirection incomplète."
+
+msgid "License"
+msgstr "Licence"
+
+msgid "General"
+msgstr "Général"
+
+msgid "Advanced"
+msgstr "Avancé"
+
+msgid "Documentation"
+msgstr "Documentation"
+
+msgid "You do not have sufficient permissions."
+msgstr "Vous n'avez pas les permissions suffisantes."
+
+msgid "License Active"
+msgstr "Licence Active"
+
+msgid "License key"
+msgstr "Clé de licence"
+
+msgid "Domain"
+msgstr "Domaine"
+
+msgid "Expiration"
+msgstr "Expiration"
+
+#, php-format
+msgid "Expired on %s"
+msgstr "Expirée le %s"
+
+#, php-format
+msgid "%1$s (%2$d day remaining)"
+msgid_plural "%1$s (%2$d days remaining)"
+msgstr[0] "%1$s (%2$d jour restant)"
+msgstr[1] "%1$s (%2$d jours restants)"
+
+#, php-format
+msgid "%1$s (%2$d days remaining)"
+msgstr "%1$s (%2$d jours restants)"
+
+msgid "Lifetime (no expiration)"
+msgstr "Lifetime (pas d'expiration)"
+
+msgid "Deactivate license"
+msgstr "Désactiver la licence"
+
+msgid "Activate your license"
+msgstr "Activez votre licence"
+
+msgid "Enter your license key to activate Smart Redirect Pro."
+msgstr "Entrez votre clé de licence pour activer Smart Redirect Pro."
+
+msgid "Activate license"
+msgstr "Activer la licence"
+
+msgid "General Settings"
+msgstr "Paramètres généraux"
+
+msgid "Base slug"
+msgstr "Slug de base"
+
+#, php-format
+msgid "Short URL prefix. E.g.: %1$s/%2$s/my-link"
+msgstr "Préfixe de l'URL courte. Ex : %1$s/%2$s/mon-lien"
+
+msgid "URL format"
+msgstr "Format d'URL"
+
+msgid "/go/my-link (slug)"
+msgstr "/go/mon-lien (slug)"
+
+msgid "/go/?p=123 (ID)"
+msgstr "/go/?p=123 (ID)"
+
+msgid "Default redirect type"
+msgstr "Type de redirection par défaut"
+
+msgid "Default attributes"
+msgstr "Attributs par défaut"
+
+msgid "Forward query parameters"
+msgstr "Transmettre les query parameters"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Tracking"
+msgstr "Tracking"
+
+msgid "Exclude bots"
+msgstr "Exclure les bots"
+
+msgid "Do not count clicks from robots/crawlers"
+msgstr "Ne pas compter les clics des robots/crawlers"
+
+msgid "Exclude admins"
+msgstr "Exclure les admins"
+
+msgid "Do not count clicks from administrators"
+msgstr "Ne pas compter les clics des administrateurs"
+
+msgid "Click retention"
+msgstr "Rétention des clics"
+
+#, php-format
+msgid "%d days"
+msgstr "%d jours"
+
+msgid "1 year"
+msgstr "1 an"
+
+msgid "Unlimited"
+msgstr "Illimité"
+
+msgid "How long click data is kept. Older data is automatically deleted."
+msgstr "Durée de conservation des données de clics. Les données plus anciennes sont supprimées automatiquement."
+
+msgid "Custom CSS"
+msgstr "CSS personnalisé"
+
+msgid "Custom CSS applied on the front-end."
+msgstr "CSS personnalisé appliqué sur le front-end."
+
+msgid "Getting Started"
+msgstr "Premiers pas"
+
+#, php-format
+msgid "Go to %s"
+msgstr "Allez dans %s"
+
+msgid "Redirects &rarr; Add Redirect"
+msgstr "Redirections &rarr; Ajouter une redirection"
+
+#, php-format
+msgid "Give it a %s (e.g. \"Amazon France\")"
+msgstr "Donnez un %s (ex : « Amazon France »)"
+
+msgid "title"
+msgstr "titre"
+
+#, php-format
+msgid "Customize the %1$s (e.g. %2$s) to get the URL %3$s"
+msgstr "Personnalisez le %1$s (ex : %2$s) pour obtenir l'URL %3$s"
+
+msgid "slug"
+msgstr "slug"
+
+#, php-format
+msgid "Paste the %s"
+msgstr "Collez l'%s"
+
+msgid "destination URL"
+msgstr "URL de destination"
+
+#, php-format
+msgid "Choose the %s and attributes"
+msgstr "Choisissez le %s et les attributs"
+
+msgid "redirect type"
+msgstr "type de redirection"
+
+#, php-format
+msgid "%s — the redirect is active immediately"
+msgstr "%s — la redirection est active immédiatement"
+
+msgid "Publish"
+msgstr "Publiez"
+
+msgid "Redirect Types"
+msgstr "Types de redirection"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "When to use"
+msgstr "Quand l'utiliser"
+
+msgid "Permanent"
+msgstr "Permanent"
+
+msgid "The link has permanently changed. Search engines transfer \"link juice\" to the destination. Caution: browsers cache this, hard to reverse."
+msgstr "Le lien a changé définitivement. Les moteurs de recherche transfèrent le « link juice » vers la destination. Attention : les navigateurs mettent en cache, difficile à annuler."
+
+msgid "Temporary"
+msgstr "Temporaire"
+
+msgid "Temporary redirect. Ideal for affiliate links, promotions, A/B tests. Recommended by default."
+msgstr "Redirection temporaire. Idéal pour les liens d'affiliation, promotions, tests A/B. Recommandé par défaut."
+
+msgid "Strict Temporary"
+msgstr "Temporaire strict"
+
+msgid "Like 302, but guarantees the HTTP method (GET/POST) is preserved. Used for forms or APIs."
+msgstr "Comme 302, mais garantit que la méthode HTTP (GET/POST) est préservée. Utilisé pour les formulaires ou APIs."
+
+msgid "Link Attributes"
+msgstr "Attributs des liens"
+
+msgid "Attribute"
+msgstr "Attribut"
+
+msgid "Effect"
+msgstr "Effet"
+
+msgid "Recommendation"
+msgstr "Recommandation"
+
+msgid "Tells search engines not to follow the link and not to transfer SEO authority."
+msgstr "Indique aux moteurs de recherche de ne pas suivre le lien et de ne pas transférer l'autorité SEO."
+
+msgid "Enabled by default. Keep it for affiliate links and external links."
+msgstr "Activé par défaut. Gardez-le pour les liens d'affiliation et les liens externes."
+
+msgid "Tells Google this is a commercial or sponsored link."
+msgstr "Indique à Google que c'est un lien commercial ou sponsorisé."
+
+msgid "Recommended for affiliate links. Compliant with Google guidelines."
+msgstr "Recommandé pour les liens d'affiliation. Conforme aux guidelines Google."
+
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+msgid "Result"
+msgstr "Résultat"
+
+#, php-format
+msgid "Generates an HTML link: %s"
+msgstr "Génère un lien HTML : %s"
+
+msgid "Link with custom text"
+msgstr "Lien avec texte personnalisé"
+
+msgid "Link by post ID"
+msgstr "Lien par ID du post"
+
+msgid "Opens in the same tab (default: new tab)"
+msgstr "Ouvre dans le même onglet (par défaut : nouvel onglet)"
+
+msgid "Returns only the URL (no HTML link) — useful in href attributes"
+msgstr "Retourne uniquement l'URL (pas de lien HTML) — utile dans les attributs href"
+
+msgid "Organization: Folders & Tags"
+msgstr "Organisation : Dossiers & Tags"
+
+msgid "Hierarchical (like categories). Used to group redirects by project, client, or theme."
+msgstr "Hiérarchiques (comme les catégories). Utilisés pour regrouper les redirections par projet, client ou thème."
+
+msgid "Examples:"
+msgstr "Exemples :"
+
+msgid "Affiliate, Partners, Offers, Social Media"
+msgstr "Affiliation, Partenaires, Offres, Réseaux sociaux"
+
+msgid "Non-hierarchical (like labels). Used to add cross-cutting tags."
+msgstr "Non-hiérarchiques (comme les étiquettes). Utilisés pour ajouter des labels transversaux."
+
+msgid "Amazon, High-ticket, Summer-promo, Urgent"
+msgstr "Amazon, High-ticket, Promo-été, Urgence"
+
+msgid "URL Settings"
+msgstr "Paramètres de l'URL"
+
+#, php-format
+msgid "The short URL prefix. Default: %1$s. Changeable in %2$s."
+msgstr "Le préfixe des URLs courtes. Par défaut : %1$s. Modifiable dans %2$s."
+
+msgid "Settings &rarr; General"
+msgstr "Réglages &rarr; Général"
+
+msgid "Generated URL"
+msgstr "URL générée"
+
+msgid "After modification, permalinks are automatically updated."
+msgstr "Après modification, les permalinks sont automatiquement actualisés."
+
+msgid "Format"
+msgstr "Format"
+
+msgid "Example"
+msgstr "Exemple"
+
+msgid "Advantage"
+msgstr "Avantage"
+
+msgid "Slug (default)"
+msgstr "Slug (défaut)"
+
+msgid "SEO-friendly, memorable"
+msgstr "SEO-friendly, mémorisable"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "No slug conflict, shorter"
+msgstr "Pas de conflit de slug, plus court"
+
+msgid "Both formats always work in parallel, regardless of the choice."
+msgstr "Les deux formats fonctionnent toujours en parallèle, quel que soit le choix."
+
+msgid "Parameter Pass-through"
+msgstr "Pass-through des paramètres"
+
+msgid "When enabled on a redirect, query parameters from the short URL are forwarded to the destination:"
+msgstr "Quand activé sur une redirection, les query parameters de l'URL courte sont transmis à la destination :"
+
+msgid "Visited URL"
+msgstr "URL visitée"
+
+msgid "Useful for affiliate tracking, UTM parameters, or campaign IDs."
+msgstr "Utile pour le tracking d'affiliation, les paramètres UTM, ou les IDs de campagne."
+
+msgid "QR Codes"
+msgstr "QR Codes"
+
+msgid "A QR Code is automatically generated for each redirect. It is visible in the editor sidebar. The QR Code points to the short URL — if you change the destination, the QR Code remains the same."
+msgstr "Un QR Code est généré automatiquement pour chaque redirection. Il est visible dans la sidebar de l'éditeur. Le QR Code pointe vers l'URL courte — si vous changez la destination, le QR Code reste le même."
+
+msgid "Tracking is a premium feature that records each click with:"
+msgstr "Le Tracking est une fonctionnalité premium qui enregistre chaque clic avec :"
+
+msgid "Date and time"
+msgstr "Date et heure"
+
+msgid "of the click"
+msgstr "exactes du clic"
+
+msgid "Country"
+msgstr "Pays"
+
+msgid "of the visitor (detected via Cloudflare)"
+msgstr "du visiteur (détecté via Cloudflare)"
+
+msgid "Browser"
+msgstr "Navigateur"
+
+msgid "Operating system"
+msgstr "Système d'exploitation"
+
+msgid "Device"
+msgstr "Appareil"
+
+msgid "Referer"
+msgstr "Referer"
+
+msgid "(where the visitor came from)"
+msgstr "(d'où vient le visiteur)"
+
+msgid "Hashed IP"
+msgstr "IP hashée"
+
+msgid "(privacy-friendly, never stored in plain text)"
+msgstr "(respect de la vie privée, jamais en clair)"
+
+#, php-format
+msgid "Accessible via %s. Filterable by redirect, country, browser, and date. CSV export available."
+msgstr "Accessible via %s. Filtrable par redirection, pays, navigateur et date. Export CSV disponible."
+
+msgid "Redirects &rarr; Tracking"
+msgstr "Redirections &rarr; Tracking"
+
+msgid "Security & Privacy"
+msgstr "Sécurité & confidentialité"
+
+msgid "IP addresses are never stored in plain text — they are hashed (SHA-256 + salt)"
+msgstr "Les adresses IP ne sont jamais stockées en clair — elles sont hashées (SHA-256 + sel)"
+
+msgid "Bots (Googlebot, Bingbot...) are automatically excluded from statistics"
+msgstr "Les bots (Googlebot, Bingbot...) sont automatiquement exclus des statistiques"
+
+msgid "Administrators are excluded by default (configurable)"
+msgstr "Les administrateurs sont exclus par défaut (configurable)"
+
+msgid "Rate limiting prevents duplicate clicks (same IP within 5 seconds)"
+msgstr "Un rate limiting empêche les clics dupliqués (même IP dans les 5 secondes)"
+
+#, php-format
+msgid "The %s header is sent when nofollow is enabled"
+msgstr "Le header %s est envoyé quand nofollow est activé"
+
+msgid "Click data is automatically purged according to the configured retention"
+msgstr "Les données de clics sont automatiquement purgées selon la rétention configurée"
+
+#, php-format
+msgid "The plugin requires a license key in the format %s"
+msgstr "Le plugin nécessite une clé de licence au format %s"
+
+msgid "The license is automatically validated every 72 hours"
+msgstr "La licence est validée toutes les 72 heures automatiquement"
+
+msgid "Depending on your license, it can be single-domain (one site) or multi-domain (unlimited)"
+msgstr "Selon votre licence, elle peut être mono-domaine (un seul site) ou multi-domaines (illimité)"
+
+msgid "When changing domains, deactivate the license on the old domain first"
+msgstr "En cas de changement de domaine, désactivez d'abord la licence sur l'ancien domaine"
+
+msgid "Plugin updates are automatic via the WordPress admin"
+msgstr "Les mises à jour du plugin sont automatiques via l'admin WordPress"
+
+msgid "Support"
+msgstr "Support"
+
+msgid "For any question or issue:"
+msgstr "Pour toute question ou problème :"
+
+msgid "Email:"
+msgstr "Email :"
+
+msgid "Clicks (7 days)"
+msgstr "Clics (7 jours)"
+
+msgid "Clicks (30 days)"
+msgstr "Clics (30 jours)"
+
+msgid "Total clicks"
+msgstr "Clics total"
+
+msgid "Top 10 — Last 30 days"
+msgstr "Top 10 — 30 derniers jours"
+
+msgid "(no title)"
+msgstr "(sans titre)"
+
+msgid "No data available."
+msgstr "Aucune donnée disponible."
+
+msgid "Clicks per day — Last 7 days"
+msgstr "Clics par jour — 7 derniers jours"
+
+msgid "Activating..."
+msgstr "Activation..."
+
+msgid "Connection error."
+msgstr "Erreur de connexion."
+
+msgid "Deactivating..."
+msgstr "Désactivation..."
+
+msgid "Deactivate the license on this domain?"
+msgstr "Désactiver la licence sur ce domaine ?"
+
+msgid "Too many attempts. Please try again in a minute."
+msgstr "Trop de tentatives. Réessayez dans une minute."
+
+msgid "Invalid license format."
+msgstr "Format de licence invalide."
+
+#, php-format
+msgid "Connection error: %s"
+msgstr "Erreur de connexion : %s"
+
+msgid "License activated."
+msgstr "Licence activée."
+
+msgid "Activation failed."
+msgstr "Activation échouée."
+
+#, php-format
+msgid "Please %s to use the plugin."
+msgstr "Veuillez %s pour utiliser le plugin."
+
+msgid "activate your license"
+msgstr "activer votre licence"
+
+#, php-format
+msgid "Your license has expired. %s"
+msgstr "Votre licence a expiré. %s"
+
+msgid "Renew"
+msgstr "Renouveler"
+
+#, php-format
+msgid "Your license expires in %1$d day. %2$s"
+msgid_plural "Your license expires in %1$d days. %2$s"
+msgstr[0] "Votre licence expire dans %1$d jour. %2$s"
+msgstr[1] "Votre licence expire dans %1$d jours. %2$s"
+
+msgid "View"
+msgstr "Voir"
+
+msgid "Permission denied."
+msgstr "Permission refusée."
+
+msgid "License deactivated."
+msgstr "Licence désactivée."
+
+msgid "Copied!"
+msgstr "Copié !"
+
+msgid "Today"
+msgstr "Aujourd'hui"
+
+msgid "Top country"
+msgstr "Top pays"
+
+msgid "Top browser"
+msgstr "Top navigateur"
+
+msgid "All"
+msgstr "Tous"
+
+msgid "From"
+msgstr "Du"
+
+msgid "To"
+msgstr "Au"
+
+msgid "Filter"
+msgstr "Filtrer"
+
+msgid "Reset"
+msgstr "Reset"
+
+msgid "Export CSV"
+msgstr "Exporter CSV"
+
+msgid "No clicks recorded."
+msgstr "Aucun clic enregistré."
+
+msgid "No clicks recorded for these filters."
+msgstr "Aucun clic enregistré pour ces filtres."
+
+msgid "Date / Time"
+msgstr "Date / Heure"
+
+msgid "Details"
+msgstr "Détails"
+
+msgid "Direct"
+msgstr "Direct"
+
+msgid "(deleted)"
+msgstr "(supprimé)"
+
+msgid "View details"
+msgstr "Voir les détails"
+
+msgid "Date & Time"
+msgstr "Date & Heure"
+
+msgid "System"
+msgstr "Système"
+
+msgid "Full referer"
+msgstr "Referer complet"
+
+msgid "Direct (no referer)"
+msgstr "Direct (pas de referer)"
+
+msgid "User-Agent"
+msgstr "User-Agent"
+
+msgid "IP (hashed)"
+msgstr "IP (hashée)"
+
+msgid "OS"
+msgstr "OS"
