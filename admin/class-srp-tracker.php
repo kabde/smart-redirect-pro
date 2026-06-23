@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class SRP_Tracker {
 
 	const TABLE_NAME  = 'srp_clicks';
-	const DB_VERSION  = '1.1';
+	const DB_VERSION  = '2.0';
 
 	public function __construct() {
 		self::maybe_migrate();
@@ -26,13 +26,14 @@ class SRP_Tracker {
 			id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 			redirect_id BIGINT UNSIGNED NOT NULL,
 			clicked_at DATETIME NOT NULL,
-			ip_hash VARCHAR(64) DEFAULT '',
+			ip_address VARCHAR(45) DEFAULT '',
 			user_agent VARCHAR(255) DEFAULT '',
 			referer VARCHAR(500) DEFAULT '',
 			country VARCHAR(2) DEFAULT '',
 			browser VARCHAR(100) DEFAULT '',
 			os VARCHAR(100) DEFAULT '',
 			device VARCHAR(20) DEFAULT 'desktop',
+			is_bot TINYINT(1) DEFAULT 0,
 			INDEX idx_redirect_id (redirect_id),
 			INDEX idx_clicked_at (clicked_at)
 		) $charset;";
@@ -96,36 +97,35 @@ function srp_parse_user_agent( $ua ) {
 function srp_track_click( $post_id ) {
 	global $wpdb;
 
-	// Skip bots
-	$exclude_bots = function_exists( 'srp_get_setting' ) ? srp_get_setting( 'exclude_bots' ) : '1';
-	if ( $exclude_bots !== '0' ) {
-		$ua = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
-		if ( preg_match( '/bot|crawl|spider|slurp|googlebot|bingbot|yandex|baidu/i', $ua ) ) return;
-	}
+	$ua = isset( $_SERVER['HTTP_USER_AGENT'] ) ? mb_substr( sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ), 0, 255 ) : '';
+
+	// Detect bot
+	$is_bot = preg_match( '/bot|crawl|spider|slurp|googlebot|bingbot|yandex|baidu|semrush|ahrefs|mj12bot|dotbot|petalbot|bytespider|gptbot|claudebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot/i', $ua ) ? 1 : 0;
+
+	// Skip bots if setting enabled (but still track them if setting disabled)
+	$exclude_bots = function_exists( 'srp_get_setting' ) ? srp_get_setting( 'exclude_bots' ) : '0';
+	if ( $exclude_bots === '1' && $is_bot ) return;
 
 	// Skip admins
 	$exclude_admins = function_exists( 'srp_get_setting' ) ? srp_get_setting( 'exclude_admins' ) : '1';
 	if ( $exclude_admins !== '0' && is_user_logged_in() && current_user_can( 'manage_options' ) ) return;
 
-	// Rate limit: same IP hash within 5 seconds
-	// Use CF-Connecting-IP for real visitor IP behind Cloudflare, fallback to REMOTE_ADDR
+	// Get real IP (CF-Connecting-IP for Cloudflare, fallback to REMOTE_ADDR)
 	$ip = '';
 	if ( isset( $_SERVER['HTTP_CF_CONNECTING_IP'] ) ) {
 		$ip = sanitize_text_field( wp_unslash( $_SERVER['HTTP_CF_CONNECTING_IP'] ) );
 	} elseif ( isset( $_SERVER['REMOTE_ADDR'] ) ) {
 		$ip = sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) );
 	}
-	$salt    = wp_salt( 'auth' );
-	$ip_hash = hash( 'sha256', $ip . $salt );
 
+	// Rate limit: same IP within 5 seconds
 	$table  = $wpdb->prefix . SRP_Tracker::TABLE_NAME;
 	$recent = $wpdb->get_var( $wpdb->prepare(
-		"SELECT COUNT(*) FROM $table WHERE redirect_id = %d AND ip_hash = %s AND clicked_at > DATE_SUB(NOW(), INTERVAL 5 SECOND)",
-		$post_id, $ip_hash
+		"SELECT COUNT(*) FROM $table WHERE redirect_id = %d AND ip_address = %s AND clicked_at > DATE_SUB(NOW(), INTERVAL 5 SECOND)",
+		$post_id, $ip
 	) );
 	if ( $recent ) return;
 
-	$ua      = isset( $_SERVER['HTTP_USER_AGENT'] ) ? mb_substr( sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ), 0, 255 ) : '';
 	$referer = isset( $_SERVER['HTTP_REFERER'] ) ? mb_substr( esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) ), 0, 500 ) : '';
 
 	// Country from Cloudflare header
@@ -141,14 +141,15 @@ function srp_track_click( $post_id ) {
 	$wpdb->insert( $table, [
 		'redirect_id' => absint( $post_id ),
 		'clicked_at'  => current_time( 'mysql' ),
-		'ip_hash'     => $ip_hash,
+		'ip_address'  => $ip,
 		'user_agent'  => $ua,
 		'referer'     => $referer,
 		'country'     => $country,
 		'browser'     => $parsed['browser'],
 		'os'          => $parsed['os'],
 		'device'      => $parsed['device'],
-	], [ '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' ] );
+		'is_bot'      => $is_bot,
+	], [ '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d' ] );
 
 	// Update cached count on post meta for fast column display
 	$total = $wpdb->get_var( $wpdb->prepare(
